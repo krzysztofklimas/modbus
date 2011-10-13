@@ -19,6 +19,10 @@
  * File: $Id: demo.c,v 1.7 2006/06/15 15:38:02 wolti Exp $
  */
 
+/*
+to jest pierwsza zmiana
+*/
+
 /* ----------------------- AVR includes -------------------------------------*/
 #include "avr/io.h"
 #include "avr/interrupt.h"
