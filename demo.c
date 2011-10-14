@@ -43,7 +43,7 @@ static USHORT   usRegInputBuf[REG_INPUT_NREGS];
 int
 main( void )
 {
-    const UCHAR     ucSlaveID[] = { 0xAA, 0xBB, 0xCC };
+    const UCHAR     ucSlaveID[] = { 0xAA, 0xBB, 0xCC };   //prawdopodobnie nie u¿ywana ta tablica
     eMBErrorCode    eStatus;
 
     eStatus = eMBInit( MB_RTU, 0x0A, 0, 9600, MB_PAR_EVEN );
