@@ -1,0 +1,8 @@
+ *.hex
+ *.o
+ *.elf
+ *.aps
+ *.map
+ *.lss
+ default/*.*
+ !default/*.aws
