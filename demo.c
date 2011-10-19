@@ -20,6 +20,10 @@
  * File: $Id: demo.c,v 1.7 2006/06/15 15:38:02 wolti Exp $
  */
 
+/*
+to jest pierwsza zmiana
+*/
+
 /* ----------------------- AVR includes -------------------------------------*/
 #include "avr/io.h"
 #include "avr/interrupt.h"
@@ -40,7 +44,7 @@ static USHORT   usRegInputBuf[REG_INPUT_NREGS];
 int
 main( void )
 {
-    const UCHAR     ucSlaveID[] = { 0xAA, 0xBB, 0xCC };
+    const UCHAR     ucSlaveID[] = { 0xAA, 0xBB, 0xCC };   //prawdopodobnie nie u¿ywana ta tablica
     eMBErrorCode    eStatus;
 
     eStatus = eMBInit( MB_RTU, 0x0A, 0, 9600, MB_PAR_EVEN );
