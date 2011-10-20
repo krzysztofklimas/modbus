@@ -57,6 +57,12 @@
 #define MB_PORT_HAS_CLOSE 0
 #endif
 
+<<<<<<< HEAD
+=======
+#ifdef SILAB
+#include silab.h
+#endif
+>>>>>>> 794146f3d4a55c0c18201bab87e9b03edf212cab
 /* ----------------------- Static variables ---------------------------------*/
 
 static UCHAR    ucMBAddress;
@@ -366,6 +372,13 @@ eMBPoll( void )
                     ( void )xMBPortEventPost( EV_EXECUTE );    /*zmiennej eQueuedEvent=EV_EXECUTE 
 																																xMBPortEventGet przypisuje eEvent=eQueuedEvent */
                 }
+<<<<<<< HEAD
+=======
+                else
+                {
+                send_rf(usLength);
+                }
+>>>>>>> 794146f3d4a55c0c18201bab87e9b03edf212cab
             }
             break;
 
