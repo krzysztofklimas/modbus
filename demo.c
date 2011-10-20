@@ -19,9 +19,6 @@
  * File: $Id: demo.c,v 1.7 2006/06/15 15:38:02 wolti Exp $
  */
 
-/*
-to jest pierwsza zmiana
-*/
 
 /* ----------------------- AVR includes -------------------------------------*/
 #include "avr/io.h"
@@ -59,6 +56,7 @@ main( void )
         ( void )eMBPoll(  );
 
         /* Here we simply count the number of poll cycles. */
+        /* for testing only */
         usRegInputBuf[0]++;
     }
 }
