@@ -372,13 +372,10 @@ eMBPoll( void )
                     ( void )xMBPortEventPost( EV_EXECUTE );    /*zmiennej eQueuedEvent=EV_EXECUTE 
 																																xMBPortEventGet przypisuje eEvent=eQueuedEvent */
                 }
-<<<<<<< HEAD
-=======
                 else
                 {
-                send_rf(usLength);
+                void send_rf(Length);                //wysy³a poprzez silab4431 otrzyman¹ ramkê o innym adresie
                 }
->>>>>>> 794146f3d4a55c0c18201bab87e9b03edf212cab
             }
             break;
 
