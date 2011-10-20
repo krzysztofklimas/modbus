@@ -1,9 +1,0 @@
- .gitignore
- *.hex
- *.o
- *.elf
- *.map
- *.lss
- *.aps
- default/
- 
