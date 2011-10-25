@@ -118,7 +118,6 @@ eMBRTUInit( UCHAR ucSlaveAddress, UCHAR ucPort, ULONG ulBaudRate, eMBParity ePar
         }
     }
     EXIT_CRITICAL_SECTION(  );
-
     return eStatus;
 }
 
