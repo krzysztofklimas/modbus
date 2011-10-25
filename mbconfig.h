@@ -126,6 +126,10 @@ PR_BEGIN_EXTERN_C
 #define MB_FUNC_READWRITE_HOLDING_ENABLED       (  1 )
 
 /*! @} */
+
+/*Use SILAB 4431*/
+#define SILAB
+
 #ifdef __cplusplus
     PR_END_EXTERN_C
 #endif

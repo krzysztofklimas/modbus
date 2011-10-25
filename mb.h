@@ -72,10 +72,6 @@ PR_BEGIN_EXTERN_C
  * \brief Use the default Modbus TCP port (502)
  */
 #define MB_TCP_PORT_USE_DEFAULT 0   
-<<<<<<< HEAD
-
-=======
->>>>>>> 794146f3d4a55c0c18201bab87e9b03edf212cab
 /* ----------------------- Type definitions ---------------------------------*/
 
 /*! \ingroup modbus

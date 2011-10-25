@@ -1,8 +1,4 @@
-/*
-<<<<<<< HEAD
- *
-=======
->>>>>>> 794146f3d4a55c0c18201bab87e9b03edf212cab
+ /*
  * FreeModbus Libary: AVR Demo Application
  * Copyright (C) 2006 Christian Walter <wolti@sil.at>
  *
@@ -23,12 +19,6 @@
  * File: $Id: demo.c,v 1.7 2006/06/15 15:38:02 wolti Exp $
  */
 
-<<<<<<< HEAD
-/*
-to jest pierwsza zmiana
-*/
-=======
->>>>>>> 794146f3d4a55c0c18201bab87e9b03edf212cab
 
 /* ----------------------- AVR includes -------------------------------------*/
 #include "avr/io.h"
@@ -66,10 +56,6 @@ main( void )
         ( void )eMBPoll(  );
 
         /* Here we simply count the number of poll cycles. */
-<<<<<<< HEAD
-=======
-        /* for testing only */
->>>>>>> 794146f3d4a55c0c18201bab87e9b03edf212cab
         usRegInputBuf[0]++;
     }
 }
