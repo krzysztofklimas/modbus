@@ -76,8 +76,9 @@ return SPDR;
 
 
 
-void send_rf(unsigned char *ucMBFrame,unsigned char *usLength )
+void send_rf(unsigned char *ucMBFrame,unsigned char usLength )
 {
+
 unsigned char ItStatus1,ItStatus2,i;
 
 //SW reset
@@ -157,15 +158,15 @@ SpiWriteRegister(0x0D, 0x15);//write 0x15 to the GPIO2 Configuration(set the RX 
 //set the length of the payload to 8bytes
 SpiWriteRegister(0x08, 0x01);   //clear TX FIFO
 SpiWriteRegister(0x08, 0x00);
-SpiWriteRegister(0x3E, *usLength); //write 8 to the Transmit Packet Length register
+SpiWriteRegister(0x3E, usLength); //write 8 to the Transmit Packet Length register
 SpiWriteRegister(0x7d, 1);      //TX FIFO Almost Empty Threshold.
 
+
 //fill the payload into the transmit FIFO
-for(i=0;i!=*usLength;i++)
+for(i=0;i!=usLength;i++)
   {
 //  SpiWriteRegister(0x7F, ucRTUBuff[i]);
   }
-
 
 /*   Stara wersja kodu
 SpiWriteRegister(0x7F, 0x42); //write 0x42 ('B') to the FIFO Access register

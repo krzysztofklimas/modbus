@@ -5,12 +5,16 @@
 
 
 
-
+/*       RS232/485      */
 #define IN_RS_LEN 64
-
-
-unsigned char main_address;
 unsigned char in_rs_buffor[IN_RS_LEN];
+
+
+/*       MODBUS     */
+unsigned char main_address;
+#define HOLDING_REG_LEN 10
+#define HOLDING_REG_START 1000
+unsigned char holding_reg[HOLDING_REG_LEN];
 
 
 
@@ -29,7 +33,7 @@ volatile unsigned short usRcvBufferPos;
 
 void modbus_execute(void);
 
-void send_rf(void);
+void send_radio(void);
 
 
 unsigned char frame_ok(void);

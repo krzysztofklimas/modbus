@@ -3,7 +3,7 @@
 #include "bridge_usart.h"
 #include "port.h"
 #include "mbcrc.h"
-
+#include "silab.h"
 
 unsigned long usTimerT35_50us;
 
@@ -27,9 +27,9 @@ switch(func_code)
 
 }
 
-void send_rf(void)
+void send_radio(void)
 {
-
+send_rf(&in_rs_buffor[0],usRcvBufferPos);
 }
 
 void poll(void)
@@ -52,7 +52,7 @@ switch(rx_status)
       }
      else
       {
-      send_rf();
+      send_radio();
       }
     }
 	rx_status = IDLE;
