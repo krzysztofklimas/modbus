@@ -2,17 +2,28 @@
 #include "bridge.h"
 #include "bridge_usart.h"
 #include "port.h"
+#include "mbcrc.h"
+
 
 unsigned long usTimerT35_50us;
 
 unsigned char frame_ok(void)
 {
-
+if(usMBCRC16(&in_rs_buffor[0], (unsigned short)usRcvBufferPos)==0)
 return 1;
+else
+return 0;
 }
 
 void modbus_execute(void)
 {
+unsigned char func_code;
+
+func_code = in_rs_buffor[1];
+
+switch(func_code)
+	case 2:
+	break;
 
 }
 
@@ -63,11 +74,3 @@ poll();
 }
 
 }
-
-
-
-
-
-
-
-
