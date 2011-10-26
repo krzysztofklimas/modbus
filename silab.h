@@ -1,13 +1,10 @@
 
 
 
-
-
-#ifndef _SILAB_
+#ifndef SILAB
 #define SILAB
 
-void send_rf(unsigned char ,unsigned char *);
-
+void send_rf(unsigned char *ucMBFrame, unsigned char *usLength );
 
 
 #endif

@@ -1,8 +1,8 @@
-
+//#include "mbrtu.h"
 #include "silab.h"
 #include "pcb01.h"
 #include "avr/io.h"
-#include "mbrtu.h"
+
 
 
 
@@ -76,7 +76,7 @@ return SPDR;
 
 
 
-void send_rf(unsigned char Length,unsigned char *wsk)
+void send_rf(unsigned char *ucMBFrame,unsigned char *usLength )
 {
 unsigned char ItStatus1,ItStatus2,i;
 
@@ -157,13 +157,13 @@ SpiWriteRegister(0x0D, 0x15);//write 0x15 to the GPIO2 Configuration(set the RX 
 //set the length of the payload to 8bytes
 SpiWriteRegister(0x08, 0x01);   //clear TX FIFO
 SpiWriteRegister(0x08, 0x00);
-SpiWriteRegister(0x3E, Length); //write 8 to the Transmit Packet Length register
+SpiWriteRegister(0x3E, *usLength); //write 8 to the Transmit Packet Length register
 SpiWriteRegister(0x7d, 1);      //TX FIFO Almost Empty Threshold.
 
 //fill the payload into the transmit FIFO
-for(i=0;i!=Length;i++)
+for(i=0;i!=*usLength;i++)
   {
-  SpiWriteRegister(0x7F, ucRTUBuff[i]);
+//  SpiWriteRegister(0x7F, ucRTUBuff[i]);
   }
 
 
@@ -197,6 +197,7 @@ SpiWriteRegister(0x07, 0x09); //write 0x09 to the Operating Function Control 1 r
 /*wait for the packet sent interrupt*/
 //The MCU just needs to wait for the 'ipksent' interrupt.
 loop_until_bit_is_set(PIND,3);
+
 //read interrupt status registers to release the interrupt flags
 ItStatus1 = SpiReadRegister(0x03); //read the Interrupt Status1 register
 ItStatus2 = SpiReadRegister(0x04); //read the Interrupt Status2 register

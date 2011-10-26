@@ -58,9 +58,7 @@
 #define MB_PORT_HAS_CLOSE 0
 #endif
 
-#ifdef SILAB
 #include "silab.h"
-#endif
 
 /* ----------------------- Static variables ---------------------------------*/
 
@@ -373,7 +371,7 @@ eMBPoll( void )
                 }
                 else
                 {
-                send_rf(usLength,&ucRTUBuf);
+                send_rf(&ucMBFrame, &usLength );
                 }
             }
             break;
