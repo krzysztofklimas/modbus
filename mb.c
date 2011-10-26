@@ -35,6 +35,7 @@
 /* ----------------------- Platform includes --------------------------------*/
 #include "port.h"
 
+
 /* ----------------------- Modbus includes ----------------------------------*/
 #include "mb.h"
 #include "mbconfig.h"
@@ -60,6 +61,7 @@
 #ifdef SILAB
 #include "silab.h"
 #endif
+
 /* ----------------------- Static variables ---------------------------------*/
 
 static UCHAR    ucMBAddress;
@@ -371,7 +373,7 @@ eMBPoll( void )
                 }
                 else
                 {
-                send_rf(usLength);
+                send_rf(usLength,&ucRTUBuf);
                 }
             }
             break;

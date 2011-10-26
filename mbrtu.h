@@ -45,6 +45,14 @@ BOOL            xMBRTUTransmitFSM( void );
 BOOL            xMBRTUTimerT15Expired( void );
 BOOL            xMBRTUTimerT35Expired( void );
 
+
+/* ----------------------- Defines ------------------------------------------*/
+#define MB_SER_PDU_SIZE_MIN     4       /*!< Minimum size of a Modbus RTU frame. */
+#define MB_SER_PDU_SIZE_MAX     256     /*!< Maximum size of a Modbus RTU frame. */
+#define MB_SER_PDU_SIZE_CRC     2       /*!< Size of CRC field in PDU. */
+#define MB_SER_PDU_ADDR_OFF     0       /*!< Offset of slave address in Ser-PDU. */
+
+volatile UCHAR  ucRTUBuf[MB_SER_PDU_SIZE_MAX];
 #ifdef __cplusplus
 PR_END_EXTERN_C
 #endif

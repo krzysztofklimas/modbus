@@ -2,10 +2,7 @@
 #include "silab.h"
 #include "pcb01.h"
 #include "avr/io.h"
-
-
-
-
+#include "mbrtu.h"
 
 
 
@@ -79,9 +76,9 @@ return SPDR;
 
 
 
-void send_rf(unsigned char Length)
+void send_rf(unsigned char Length,unsigned char *wsk)
 {
-unsigned char ItStatus1,ItStatus2;
+unsigned char ItStatus1,ItStatus2,i;
 
 //SW reset
 SpiWriteRegister(0x07, 0x80);
@@ -164,8 +161,14 @@ SpiWriteRegister(0x3E, Length); //write 8 to the Transmit Packet Length register
 SpiWriteRegister(0x7d, 1);      //TX FIFO Almost Empty Threshold.
 
 //fill the payload into the transmit FIFO
-SpiWriteRegister(0x7F, 0x42); //write 0x42 ('B') to the FIFO Access register
+for(i=0;i!=Length;i++)
+  {
+  SpiWriteRegister(0x7F, ucRTUBuff[i]);
+  }
 
+
+/*   Stara wersja kodu
+SpiWriteRegister(0x7F, 0x42); //write 0x42 ('B') to the FIFO Access register
 
 ItStatus1 = SpiReadRegister(0x03); //read the Interrupt Status1 register (sprawdzic )
 ItStatus2 = SpiReadRegister(0x04); //read the Interrupt Status2 register (sprawdzic )
@@ -177,7 +180,7 @@ SpiWriteRegister(0x7F, 0x54); //write 0x54 ('T') to the FIFO Access register
 SpiWriteRegister(0x7F, 0x4F); //write 0x4F ('O') to the FIFO Access register
 SpiWriteRegister(0x7F, 0x4E); //write 0x4E ('N') to the FIFO Access register
 SpiWriteRegister(0x7F, 0x31); //write 0x31 ('1') to the FIFO Access register
-SpiWriteRegister(0x7F, 0x0D); //write 0x0D (CR) to the FIFO Access register
+SpiWriteRegister(0x7F, 0x0D); //write 0x0D (CR) to the FIFO Access register*/
 
 //Disable all other interrupts and enable the packet sent interrupt only.
 //This will be used for indicating the successful packet transmission for the MCU

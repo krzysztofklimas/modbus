@@ -1,4 +1,4 @@
- /*
+/*
  * FreeModbus Libary: AVR Demo Application
  * Copyright (C) 2006 Christian Walter <wolti@sil.at>
  *
@@ -18,7 +18,6 @@
  *
  * File: $Id: demo.c,v 1.7 2006/06/15 15:38:02 wolti Exp $
  */
-
 
 /* ----------------------- AVR includes -------------------------------------*/
 #include "avr/io.h"
